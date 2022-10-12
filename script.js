@@ -46,8 +46,12 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
     .catch(err => console.error(err));
 
 
-    //pick your favorite artist 
-    fetch("https://itunes.apple.com/search?term=jack+johnson&limit=25")
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+    // //pick your favorite artist 
+    // //place the artist you want or type of music and it displays a list of URL's and music videos
+    // fetch("https://itunes.apple.com/search?term=happyVibes&entity=music&limit=25")
+    // .then(response => response.json())
+    // .then(response => console.log(response))
+    // .catch(err => console.error(err));
+
+
+  

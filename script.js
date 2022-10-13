@@ -1,26 +1,19 @@
 
-
-var homeCardEl = document.querySelector(".homeCard");
+var homeCardEl =document.querySelector(".homeCard");
 var optionsEl = document.querySelector('.option');
 var dishElementEl = document.querySelector('.dishElement');
 var musicEl = document.querySelector('.musicChoice');
 var cookingTimeEl = document.querySelector('.cookingTime');
-
-
+var resultsEl = document.querySelector("#recipeResult");
 function onStartButton() {
       $('.startBtn').click(function(){
             homeCardEl.setAttribute("data-style","hide");
             optionsEl.removeAttribute("data-style","hide");
       })
-
 };
-
 onStartButton();
-
-
 function getRecipes(ingrident,time){
       //console.log(ingrident, time);
-
       if(time ==="Easy Meals Under 30 minutes"){
              const specification = {
             method: 'GET',
@@ -29,23 +22,52 @@ function getRecipes(ingrident,time){
                   'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
             }
       };
-      
       fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&q='+ingrident, specification)
       .then(function (response) {
             return response.json();
             })
-      
             .then(function (response) {
-            
-            //document.location.href ="recipe.html";
             console.log(response);
+            resultsEl.textContent="";
+            var cardDiv = document.createElement('div');
+            var titleResult = document.createElement('h3');
+            var resultImg = document.createElement('img');
+            //cardDiv.append(imgEl);
+            var dishName = [];
+            for(var i=0; i < 10; i++){
+             dishName[i] = response.results[i].name;
+             }
+             console.log(dishName);
+            for(var i =0; i<dishName.length; i++){
+                  titleResult.textContent = String(dishName);
+            }
+            cardDiv.appendChild(titleResult);
+            resultsEl.appendChild(cardDiv);
+            resultsEl.removeAttribute("data-style");
+             var dishImgUrl = [];
+             for(var i=0; i < 10; i++){
+                  dishImgUrl[i] = response.results[i].thumbnail_url;
+                 }
+                  console.log(dishImgUrl);
+            for(var i=0; i<dishImgUrl; i++){
+                  resultImg[i].src = dishImgUrl[i];
+            }
+            cardDiv.append(resultImg);
+            })
+            .catch(err => console.error(err));
+      }
+
+            console.log(data);
             var dishName = []
             
             for(var i=0; i < 10; i++){
              dishName[i] = response.results[i].name;
             }
              console.log(dishName);
-
+             dishName=dishName.filter(item=>item);
+             for (i=0; i<dishName.length; i++){
+                   $(".name"+i).text(dishName[i])
+             }
              var dishImgUrl = []
 
              for(var i=0; i < 10; i++){
@@ -176,6 +198,7 @@ function onSearchButton(){
 
             getRecipes(dishChoice,timeChoice);
             getMusic(musicChoice);
+            $(".displayResult").removeAttr("data-style");
             })
       }
 onSearchButton();

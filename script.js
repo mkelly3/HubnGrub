@@ -110,50 +110,101 @@ function getRecipes(ingrident,time){
       
 }
 
+var musicResultEl = document.querySelector('.musicDisplay');
+var songTitleEl = document.querySelector("#artist");
+
 function getMusic(music){
-      //search for an artisit based on genre 
+      //search for an artist based on genre
       fetch("https://itunes.apple.com/search?entity=song&attribute=genreIndex&term="+music+"&limit=25")
-      
       .then(function (response) {
             return response.json();
         })
-
       .then(function (response) {
-            console.log(response)
-            var artisits = []
-            
-            for(var i=0; i<25; i++){
-                  artisits[i] = response.results[i].artistName;
+            console.log(response);
+            var musicDiv = document.createElement('div');
+            var artistTitle = document.createElement('h3');
+            var song = document.createElement('p');
+            var songUrl= document.createElement('a');
+            var link = document.createTextNode("This is link");
+            songUrl.appendChild(link);
+            songUrl.title = "This is Link";
+            var artists = [];
+            for(var i=0; i<8; i++){
+                  artists[i] = response.results[i].artistName;
             }
-            //console.log(artisits);
-
-                  
-            // artisits = artisits.filter(item => item);
-
-            // for(var i=0; i<artisits.length; i++){
-            //       $('.name').text(artisits[i])
-            // }
-            
-            //document.location.href ="recipe.html";
-
+            for(var i=0; i<artists.length; i++){
+                  artistTitle.textContent = artists;
+            }
             var songTitle = [];
-            for(var i=0; i<25; i++){
+            for(var i=0; i<8; i++){
                   songTitle[i] = response.results[i].trackName;
             }
             console.log(songTitle);
-
+            for(var i=0; i<songTitle.length; i++){
+                  song.textContent = songTitle;
+            }
+            console.log(song);
             var songLink = [];
-            for(var i=0; i<25; i++){
+            for(var i=0; i<8; i++){
                   songLink[i] = response.results[i].trackViewUrl;
             }
+            for(var i=0; i<songLink;i++){
+                  songUrl.href = songLink
+            }
             console.log(songLink);
-
-
+            musicDiv.appendChild(songUrl);
+            musicDiv.appendChild(artistTitle);
+            musicDiv.appendChild(song);
+            musicResultEl.appendChild(musicDiv);
+            musicResultEl.removeAttribute("data-style");
       })
-
       .catch(err => console.error(err));
-
 }
+
+// function getMusic(music){
+//       //search for an artisit based on genre 
+//       fetch("https://itunes.apple.com/search?entity=song&attribute=genreIndex&term="+music+"&limit=25")
+      
+//       .then(function (response) {
+//             return response.json();
+//         })
+
+//       .then(function (response) {
+//             console.log(response)
+//             var artisits = []
+            
+//             for(var i=0; i<25; i++){
+//                   artisits[i] = response.results[i].artistName;
+//             }
+//             //console.log(artisits);
+
+                  
+//             // artisits = artisits.filter(item => item);
+
+//             // for(var i=0; i<artisits.length; i++){
+//             //       $('.name').text(artisits[i])
+//             // }
+            
+//             //document.location.href ="recipe.html";
+
+//             var songTitle = [];
+//             for(var i=0; i<25; i++){
+//                   songTitle[i] = response.results[i].trackName;
+//             }
+//             console.log(songTitle);
+
+//             var songLink = [];
+//             for(var i=0; i<25; i++){
+//                   songLink[i] = response.results[i].trackViewUrl;
+//             }
+//             console.log(songLink);
+
+
+//       })
+
+//       .catch(err => console.error(err));
+
+// }
 
 
 function onSearchButton(){

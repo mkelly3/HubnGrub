@@ -37,7 +37,7 @@ function getRecipes(ingrident,time){
       
             .then(function (response) {
             
-            //document.location.href ="recipe.html";
+            
             console.log(response);
             var dishName = []
             
@@ -63,8 +63,10 @@ function getRecipes(ingrident,time){
             })
             .catch(err => console.error(err));
 
-      }
+            //document.location.href ="recipe.html";
 
+      }
+      
       else{
             console.log('yes');
             const specification = {

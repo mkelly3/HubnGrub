@@ -74,5 +74,6 @@ fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_mi
                   console.log(numberChoice);  
       
                    getRecipes(dishChoice,timeChoice,numberChoice);
+                   document.location.href ="recipe.html";
             })
       }

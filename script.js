@@ -40,11 +40,32 @@ function getRecipes(ingrident,time){
             
             //document.location.href ="recipe.html";
             console.log(response);
+            var dishName = []
+            
+            for(var i=0; i < 10; i++){
+             dishName[i] = response.results[i].name;
+            }
+             console.log(dishName);
+
+             var dishImgUrl = []
+
+             for(var i=0; i < 10; i++){
+                  dishImgUrl[i] = response.results[i].thumbnail_url;
+                 }
+                  console.log(dishImgUrl);
+                  
+            var nutrition = []
+
+            for(var i=0; i < 10; i++){
+                  nutrition[i] = response.results[i].nutrition;
+                 }
+                  console.log(nutrition);
 
             })
             .catch(err => console.error(err));
 
       }
+
       else{
             console.log('yes');
             const specification = {
@@ -64,6 +85,14 @@ function getRecipes(ingrident,time){
       
        //document.location.href ="recipe.html";
        console.log(response)
+
+       var dishName = []
+            
+       for(var i=0; i < response.results.length; i++){
+             dishName[i] = response.results[i].name;
+       }
+       console.log(dishName);
+
       })
            .catch(err => console.error(err)); 
       }
@@ -100,13 +129,13 @@ function getMusic(music){
             for(var i=0; i<25; i++){
                   songTitle[i] = response.results[i].trackName;
             }
-            //console.log(songTitle);
+            console.log(songTitle);
 
             var songLink = [];
             for(var i=0; i<25; i++){
                   songLink[i] = response.results[i].trackViewUrl;
             }
-            //console.log(songLink);
+            console.log(songLink);
 
 
       })

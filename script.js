@@ -19,10 +19,9 @@ onStartButton();
 
 
 function getRecipes(ingrident,time){
-      console.log(ingrident, time);
+      //console.log(ingrident, time);
 
       if(time ==="Easy Meals Under 30 minutes"){
-            console.log('yes');
              const specification = {
             method: 'GET',
             headers: {
@@ -85,14 +84,26 @@ function getRecipes(ingrident,time){
       
        //document.location.href ="recipe.html";
        console.log(response)
-
        var dishName = []
             
-       for(var i=0; i < response.results.length; i++){
-             dishName[i] = response.results[i].name;
-       }
-       console.log(dishName);
+       for(var i=0; i < 10; i++){
+            dishName[i] = response.results[i].name;
+           }
+            console.log(dishName);
 
+            var dishImgUrl = []
+
+            for(var i=0; i < 10; i++){
+                 dishImgUrl[i] = response.results[i].thumbnail_url;
+                }
+                 console.log(dishImgUrl);
+                 
+           var nutrition = []
+
+           for(var i=0; i < 10; i++){
+                 nutrition[i] = response.results[i].nutrition;
+                }
+                 console.log(nutrition);
       })
            .catch(err => console.error(err)); 
       }
@@ -164,7 +175,7 @@ function onSearchButton(){
             console.log(musicChoice); 
 
             getRecipes(dishChoice,timeChoice);
-            //getMusic(musicChoice);
+            getMusic(musicChoice);
             })
       }
 onSearchButton();

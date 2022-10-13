@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="syle.css" />
 <style>
 body, html {height: 100%}
 body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
@@ -31,14 +32,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
   
-  <div class="w3-display-middle w3-center">
+  <div class="homeCard w3-display-middle w3-center" data-style="show">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">Hub n' Grub</span>
     <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
-    <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
+    <p><a href="#menu" class="startBtn w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
+
   </div>
 </header>
+<div class="option" style="width:200px;" data-style="hide">
+  <select class="dishElement">
+    <option value="0">Select main dish element:</option>
+    <option value="1">Chicken</option>
+    <option value="2">Steak</option>
+    <option value="2">Lobster</option>
+    <option value="2">Shrimp</option>
+    <option value="2">Pork</option>
+    <option value="2">Tofu</option>
+    <option value="2">Vegetables</option>
+  </select>
+  <select class="servingSizeElement">
+    <option value="0">How many people are you serving:</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="2">3</option>
+    <option value="2">4</option>
+    <option value="2">5</option>
+    <option value="2">6</option>
+    <option value="2">More then 8</option>
+  </select>
+  <select class="cookingTime">
+    <option value="0">How long do you want this recipe to take:</option>
+    <option value="1">Less than 30 minutes</option>
+    <option value="2">Less than 60 minutes</option>
+    <option value="2">Less than 90 minutes</option>
+    <option value="2">less than 2 hours</option>
+  </select>
 
-
+</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
@@ -60,7 +90,7 @@ function openMenu(evt, menuName) {
   document.getElementById(menuName).style.display = "block";
   evt.currentTarget.firstElementChild.className += " w3-red";
 }
-document.getElementById("myLink").click();
+//document.getElementById("myLink").click();
 </script>
 
 </body>

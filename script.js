@@ -7,9 +7,6 @@ var musicEl = document.querySelector('.musicChoice');
 var cookingTimeEl = document.querySelector('.cookingTime');
 
 
-
-  
-
 function onStartButton() {
       $('.startBtn').click(function(){
             homeCardEl.setAttribute("data-style","hide");
@@ -19,7 +16,6 @@ function onStartButton() {
 };
 
 onStartButton();
-
 
 
 function getRecipes(ingrident,time){
@@ -42,8 +38,9 @@ function getRecipes(ingrident,time){
       
             .then(function (response) {
             
-            document.location.href ="recipe.html";
+            //document.location.href ="recipe.html";
             console.log(response);
+
             })
             .catch(err => console.error(err));
 
@@ -65,7 +62,7 @@ function getRecipes(ingrident,time){
 
       .then(function (response) {
       
-       document.location.href ="recipe.html";
+       //document.location.href ="recipe.html";
        console.log(response)
       })
            .catch(err => console.error(err)); 
@@ -83,7 +80,35 @@ function getMusic(music){
 
       .then(function (response) {
             console.log(response)
-            document.location.href ="recipe.html";
+            var artisits = []
+            
+            for(var i=0; i<25; i++){
+                  artisits[i] = response.results[i].artistName;
+            }
+            //console.log(artisits);
+
+                  
+            // artisits = artisits.filter(item => item);
+
+            // for(var i=0; i<artisits.length; i++){
+            //       $('.name').text(artisits[i])
+            // }
+            
+            //document.location.href ="recipe.html";
+
+            var songTitle = [];
+            for(var i=0; i<25; i++){
+                  songTitle[i] = response.results[i].trackName;
+            }
+            //console.log(songTitle);
+
+            var songLink = [];
+            for(var i=0; i<25; i++){
+                  songLink[i] = response.results[i].trackViewUrl;
+            }
+            //console.log(songLink);
+
+
       })
 
       .catch(err => console.error(err));
@@ -96,9 +121,10 @@ function onSearchButton(){
       $('.searchBtn').click(function(event){
             event.preventDefault();
             
-            if(dishElementEl.selectedIndex === 0 || cookingTimeEl.selectedIndex === 0){
+            if(dishElementEl.selectedIndex === 0 || cookingTimeEl.selectedIndex === 0 || musicEl.selectedIndex ===0){
                        return;
                   }
+
             var dishChoice = dishElementEl.options[dishElementEl.selectedIndex].text;
             console.log(dishChoice);
                         
@@ -109,7 +135,7 @@ function onSearchButton(){
             console.log(musicChoice); 
 
             getRecipes(dishChoice,timeChoice);
-            getMusic(musicChoice);
+            //getMusic(musicChoice);
             })
       }
 onSearchButton();

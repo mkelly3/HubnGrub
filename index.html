@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 <!-- Navbar (sit on top) -->
 <div class="w3-top w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
-    <a href="index.html" class="homeBtn w3-bar-item w3-button">HOME</a>
+    <a href="#" class="homeBtn w3-bar-item w3-button">HOME</a>
     <a href="#saved" class="w3-bar-item w3-button">Saved Hub n' Grub</a>
   </div>
 </div>
@@ -35,7 +35,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   <div class="homeCard w3-display-middle w3-center" data-style="show">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">Hub n' Grub</span>
     <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
-    <p><a href="#menu" class="startBtn w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
+    <p><a class="startBtn w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
 
   </div>
 </header>
@@ -56,12 +56,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <option value="2">No Time Constrant</option>
   </select>
   <select class="musicChoice">
-    <option value="0">Pop</option>
+    <option value="0">Please Select a Music Genre</option>
+    <option value="1">Pop</option>
     <option value="1">Jazz</option>
     <option value="2">Country</option>
     <option value="2">Rock n'Roll</option>
   </select>
   <button class="searchBtn w3-xxlarge w3-black">Search!</button>
+</div>
+
+<div class = "artist" data-style="hide">
+  <h1 class="name ws-text-black"></h1>
 </div>
 
 

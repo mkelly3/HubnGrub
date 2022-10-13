@@ -36,8 +36,15 @@ function getRecipes(ingrident,time){
       };
       
       fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&q='+ingrident, specification)
-            .then(response => response.json())
-            .then(response => console.log(response))
+      .then(function (response) {
+            return response.json();
+            })
+      
+            .then(function (response) {
+            
+            document.location.href ="recipe.html";
+            console.log(response);
+            })
             .catch(err => console.error(err));
 
       }
@@ -52,8 +59,15 @@ function getRecipes(ingrident,time){
      };
      
      fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q='+ingrident, specification)
-           .then(response => response.json())
-           .then(response => console.log(response))
+     .then(function (response) {
+      return response.json();
+      })
+
+      .then(function (response) {
+      
+       document.location.href ="recipe.html";
+       console.log(response)
+      })
            .catch(err => console.error(err)); 
       }
       
@@ -62,8 +76,16 @@ function getRecipes(ingrident,time){
 function getMusic(music){
       //search for an artisit based on genre 
       fetch("https://itunes.apple.com/search?entity=song&attribute=genreIndex&term="+music+"&limit=25")
-      .then(response => response.json())
-      .then(response => console.log(response))
+      
+      .then(function (response) {
+            return response.json();
+        })
+
+      .then(function (response) {
+            console.log(response)
+            document.location.href ="recipe.html";
+      })
+
       .catch(err => console.error(err));
 
 }
@@ -87,8 +109,8 @@ function onSearchButton(){
             console.log(musicChoice); 
 
             getRecipes(dishChoice,timeChoice);
-            //document.location.href ="recipe.html";
             getMusic(musicChoice);
             })
       }
 onSearchButton();
+

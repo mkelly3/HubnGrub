@@ -1,8 +1,6 @@
 # Hub n'Grub
 
-Javascript is used by programmers across the world to create dynamic and interactive web content like applications and browsers. JavaScript is so popular that it's the most used programming language in the world, used as a client-side programming language by 97.0% of all websites
-
-This app allows users to experience an at home date event based off their choice of food and music. The user can input certain parameters including nutrition, serving size, time to cook, recipe steps and finally ingredients. After the parameters have been chosen the user will be prompted with a recipes that fit the criteria. Once, the meal has been selected the user will be prompted to select their choice of music to set the mood for the meal time.
+This app allows users to experience an at home date event based off their choice of food and music. The user can input certain parameters including choice of protein, vegetable and music genre. After the parameters have been chosen the user will be prompted with a recipes that fit the criteria. The recipe presented will have a corresponding artist and song so that they can listen while they cook/eat. All recent searches will be saved in a recent searches tab so the user can quickly scroll through old recipes. 
 
 The Webpage can easily access through this link[https://mkelly3.github.io/HubnGrub/]
 

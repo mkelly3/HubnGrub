@@ -15,12 +15,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("./logo.PNG");
-  min-height: 80%;
+  min-height: 125%;
 }
 </style>
 </head>
 <body>
-
 <!-- Navbar (sit on top) -->
 <div class="w3-top w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
@@ -28,62 +27,107 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <a href="#saved" class="w3-bar-item w3-button">Saved Hub n' Grub</a>
   </div>
 </div>
-  
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  
   <div class="homeCard w3-display-middle w3-center" data-style="show">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">Hub n' Grub</span>
     <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
     <p><a class="startBtn w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
   </div>
 </header>
-
 <div class="option w3-display-middle w3-center w3-xxlarge" style="width:200px;" data-style="hide">
   <h2 class="w3-center w3-xxlarge w3-text-white">Please Select Options Below</h2>
-  <select class="dishElement">
-    <option value="0">Select main dish element:</option>
+  <select class="proteinChoice">
+    <option value="0">Select protein:</option>
     <option value="1">Chicken</option>
     <option value="2">Steak</option>
-    <option value="2">Shrimp</option>
-    <option value="2">Pork</option>
-    <option value="2">Tofu</option>
-    <option value="2">Carrots</option>
+    <option value="3">Shrimp</option>
+    <option value="4">Pork</option>
+    <option value="5">Tofu</option>
   </select>
-  <select class="cookingTime">
-    <option value="0">How long do you want this recipe to take:</option>
-    <option value="1">Easy Meals Under 30 minutes</option>
-    <option value="2">No Time Constrant</option>
+  <select class="vegetableSelection">
+    <option value="0">Select a Vegetable:</option>
+    <option value="1">Carrot</option>
+    <option value="2">Spinach</option>
+    <option value="3">Broccoli</option>
+    <option value="4">Squash</option>
+    <option value="5">Onion</option>
+    <option value="6">Tomato</option>
+    <option value="7">Potato</option>
   </select>
   <select class="musicChoice">
     <option value="0">Please Select a Music Genre</option>
     <option value="1">Pop</option>
-    <option value="1">Jazz</option>
-    <option value="2">Country</option>
-    <option value="2">Rock n'Roll</option>
+    <option value="2">Jazz</option>
+    <option value="3">Country</option>
+    <option value="4">Rock n'Roll</option>
   </select>
   <button class="searchBtn w3-xxlarge w3-black">Search!</button>
 </div>
+<div class="recipeResuls w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+  <!-- First Photo Grid-->
+  <div class="food1 w3-row-padding w3-padding-16 w3-center" data-style="hide">
+    <div class="w3-row-padding w3-padding-16 w3-center">
+      <div class="w3-quarter">
+        <h3 id="recipeName0"></h3>
+        <img id="recipeImg0"/>
+        <button class="saveBtn">Save!</button>
+      </div>
+      <div class="w3-quarter">
+        <h3 id="recipeName1"></h3>
+        <img id="recipeImg1"/>
+        <button class="saveBtn">Save!</button>
+      </div>
+      <div class="w3-quarter">
+        <h3 id="recipeName2"></h3>
+        <img id="recipeImg2"/>
+        <button class="saveBtn">Save!</button>
+      </div>
+      <div class="w3-quarter">
+        <h3 id="recipeName3"></h3>
+        <img id="recipeImg3"/>
+        <button class="saveBtn">Save!</button>
+      </div>
+</div>
+  </div>
+   <!-- Second Photo Grid-->
+   <div class="food2 w3-row-padding w3-padding-16 w3-center" data-style="hide">
+    <div class="w3-quarter">
+      <h3 id="recipeName4"></h3>
+      <img id="recipeImg4"/>
+      <button class="saveBtn">Save!</button>
+    </div>
+    <div class="w3-quarter">
+      <h3 id="recipeName5"></h3>
+      <img id="recipeImg5"/>
+      <button class="saveBtn">Save!</button>
+    </div>
+    <div class="w3-quarter">
+      <h3 id="recipeName6"></h3>
+      <img id="recipeImg6"/>
+      <button class="saveBtn">Save!</button>
+    </div>
+    <div class="w3-quarter">
+      <h3 id="recipeName7"></h3>
+      <img id="recipeImg7"/>
+      <button class="saveBtn">Save!</button>
+    </div>>
+  </div>
 
-<div class="displayResult w3-row-padding w3-padding-16 w3-center" id="food" data-style="hide">
-
+<div class ="musicDisplay"  data-style="hide">
+  <h1>Music Choices</h1>
 </div>
 
-<div class = "musicDisplay w3-row-padding w3-padding-16 w3-center" id="music" data-style="hide">
-  
-</div>
-
-
+<!-- <div class = "musicDisplay w3-row-padding w3-padding-16 w3-center" id="music" data-style="hide"></div> -->
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
   <p>Powered by Angela Amaro, Morgan Kelly, Daniel Packer, Akash Chanara</p>
 </footer>
 
+<a></a>
 </body>
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="script.js"></script>
-
 </html>

@@ -1,113 +1,43 @@
-
-
-var homeCardEl = document.querySelector(".homeCard");
+var homeCardEl =document.querySelector(".homeCard");
 var optionsEl = document.querySelector('.option');
-var dishElementEl = document.querySelector('.dishElement');
+var proteinElementEl = document.querySelector('.proteinChoice');
 var musicEl = document.querySelector('.musicChoice');
-var cookingTimeEl = document.querySelector('.cookingTime');
-
-
+var veggieEl = document.querySelector('.vegetableSelection');
+var results1El = document.querySelector(".food1");
+var results2El = document.querySelector(".food2");
+var saveBtn = document.querySelectorAll(".saveBtn1");
 function onStartButton() {
       $('.startBtn').click(function(){
             homeCardEl.setAttribute("data-style","hide");
             optionsEl.removeAttribute("data-style","hide");
       })
-
 };
-
 onStartButton();
-
-
-function getRecipes(ingrident,time){
-      //console.log(ingrident, time);
-
-      if(time ==="Easy Meals Under 30 minutes"){
-             const specification = {
-            method: 'GET',
-            headers: {
-                  'X-RapidAPI-Key': 'd9d33242b0msh33204813b478dddp15d47ajsne912a7d2c892',
-                  'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-            }
-      };
-      
-      fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&q='+ingrident, specification)
+function getRecipes(ingrident1,ingrident2){
+      console.log(ingrident1,ingrident2);
+      fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=929b3b7b8bef46ec82a39bfd9c299472&ingredients='+ingrident1+',+'+ingrident2)
       .then(function (response) {
             return response.json();
             })
-      
             .then(function (response) {
-            
-            //document.location.href ="recipe.html";
             console.log(response);
-            var dishName = []
-            
-            for(var i=0; i < 10; i++){
-             dishName[i] = response.results[i].name;
-            }
-             console.log(dishName);
-
-             var dishImgUrl = []
-
-             for(var i=0; i < 10; i++){
-                  dishImgUrl[i] = response.results[i].thumbnail_url;
-                 }
-                  console.log(dishImgUrl);
-                  
-            var nutrition = []
-
-            for(var i=0; i < 10; i++){
-                  nutrition[i] = response.results[i].nutrition;
-                 }
-                  console.log(nutrition);
-
-            })
-            .catch(err => console.error(err));
-
-      }
-
-      else{
-            console.log('yes');
-            const specification = {
-           method: 'GET',
-           headers: {
-                 'X-RapidAPI-Key': 'd9d33242b0msh33204813b478dddp15d47ajsne912a7d2c892',
-                 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+            var titleRecipe = [];
+           for(var i=0; i<8; i++){
+            titleRecipe[i] = response[i].title;
            }
-     };
-     
-     fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q='+ingrident, specification)
-     .then(function (response) {
-      return response.json();
-      })
-
-      .then(function (response) {
-      
-       //document.location.href ="recipe.html";
-       console.log(response)
-       var dishName = []
-            
-       for(var i=0; i < 10; i++){
-            dishName[i] = response.results[i].name;
+           titleRecipe =titleRecipe. filter(item => item);
+           for (i = 0; i < titleRecipe.length; i++) {
+            $('#recipeName'+i).text(titleRecipe[i]);
            }
-            console.log(dishName);
-
-            var dishImgUrl = []
-
-            for(var i=0; i < 10; i++){
-                 dishImgUrl[i] = response.results[i].thumbnail_url;
-                }
-                 console.log(dishImgUrl);
-                 
-           var nutrition = []
-
-           for(var i=0; i < 10; i++){
-                 nutrition[i] = response.results[i].nutrition;
-                }
-                 console.log(nutrition);
-      })
-           .catch(err => console.error(err)); 
-      }
-      
+           var recipeImg = [];
+           for(var i=0; i<8; i++){
+            recipeImg[i] = response[i].image;
+           }
+          recipeImg =recipeImg. filter(item => item);
+           for (i = 0; i < recipeImg.length; i++) {
+            $('#recipeImg'+i).attr({ "src": recipeImg[i], "alt": "Food Pic" });
+           }
+            });
 }
 
 var musicResultEl = document.querySelector('.musicDisplay');
@@ -125,8 +55,9 @@ function getMusic(music){
             var artistTitle = document.createElement('h3');
             var song = document.createElement('p');
             var songUrl= document.createElement('a');
+
             var link = document.createTextNode("This is link");
-            songUrl.appendChild(link);
+            songUrl.append(link);
             songUrl.title = "This is Link";
             var artists = [];
             for(var i=0; i<8; i++){
@@ -208,26 +139,19 @@ function getMusic(music){
 
 
 function onSearchButton(){
-       
       $('.searchBtn').click(function(event){
             event.preventDefault();
-            
-            if(dishElementEl.selectedIndex === 0 || cookingTimeEl.selectedIndex === 0 || musicEl.selectedIndex ===0){
+            if(proteinElementEl.selectedIndex === 0 || veggieEl.selectedIndex === 0 || musicEl.selectedIndex ===0){
                        return;
                   }
-
-            var dishChoice = dishElementEl.options[dishElementEl.selectedIndex].text;
-            console.log(dishChoice);
-                        
-            var timeChoice = cookingTimeEl.options[cookingTimeEl.selectedIndex].text;
-            console.log(String(timeChoice));
-            
+            var protein = proteinElementEl.options[proteinElementEl.selectedIndex].text;
+            console.log(protein);
+            var veggieChoice = veggieEl.options[veggieEl.selectedIndex].text;
+            console.log(veggieChoice);
             var musicChoice = musicEl.options[musicEl.selectedIndex].text;
-            console.log(musicChoice); 
-
-            getRecipes(dishChoice,timeChoice);
-            getMusic(musicChoice);
+            console.log(musicChoice);
+            getRecipes(protein,veggieChoice);
+            //getMusic(musicChoice);
             })
       }
 onSearchButton();
-

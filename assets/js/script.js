@@ -17,6 +17,7 @@ function onStartButton() {
 }
 onStartButton();
 function getRecipes(ingrident1, ingrident2) {
+  titleRecipe = [];
   console.log(ingrident1, ingrident2);
   fetch(
     "https://api.spoonacular.com/recipes/findByIngredients?apiKey=929b3b7b8bef46ec82a39bfd9c299472&ingredients=" +
@@ -52,6 +53,8 @@ var musicResultEl = document.querySelector(".musicDisplay");
 var songTitleEl = document.querySelector("#artist");
 
 function getMusic(music) {
+  artists = [];
+  songTitle = [];
   //search for an artist based on genre
   fetch(
     "https://itunes.apple.com/search?entity=song&attribute=genreIndex&term=" +

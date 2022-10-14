@@ -197,3 +197,11 @@ saveBtn.addEventListener("click", function (event) {
   };
   localStorage.setItem("savedCardStringify", JSON.stringify(savedCard));
 });
+
+function recentSaved () {
+  $(".recent").on("click",function(){
+    document.location.replace("recipe.html");
+  })
+}
+recentSaved()
+

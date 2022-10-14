@@ -63,6 +63,10 @@ function getMusic(music){
             for(var i=0; i<8; i++){
                   artists[i] = response.results[i].artistName;
             }
+            for(var i=0; i < artists.length; i++) {
+              $("#artistName" + i).text(artists[i])
+            }
+
             for(var i=0; i<artists.length; i++){
                   artistTitle.textContent = artists;
             }
@@ -151,7 +155,7 @@ function onSearchButton(){
             var musicChoice = musicEl.options[musicEl.selectedIndex].text;
             console.log(musicChoice);
             getRecipes(protein,veggieChoice);
-            //getMusic(musicChoice);
+            getMusic(musicChoice);
             })
       }
 onSearchButton();

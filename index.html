@@ -15,12 +15,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("./logo.PNG");
-  min-height: 80%;
+  min-height: 125%;
 }
 </style>
 </head>
 <body>
-
 <!-- Navbar (sit on top) -->
 <div class="w3-top w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
@@ -28,86 +27,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     <a href="#saved" class="w3-bar-item w3-button">Saved Hub n' Grub</a>
   </div>
 </div>
-  
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  
   <div class="homeCard w3-display-middle w3-center" data-style="show">
     <span class="w3-text-white w3-hide-small" style="font-size:100px">Hub n' Grub</span>
     <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b>thin<br>CRUST PIZZA</b></span>
     <p><a class="startBtn w3-button w3-xxlarge w3-black">Start a Hub n' Grub</a></p>
-
   </div>
 </header>
 <div class="option w3-display-middle w3-center w3-xxlarge" style="width:200px;" data-style="hide">
   <h2 class="w3-center w3-xxlarge w3-text-white">Please Select Options Below</h2>
-  <select class="dishElement">
-    <option value="0">Select main dish element:</option>
+  <select class="proteinChoice">
+    <option value="0">Select protein:</option>
     <option value="1">Chicken</option>
     <option value="2">Steak</option>
-    <option value="2">Shrimp</option>
-    <option value="2">Pork</option>
-    <option value="2">Tofu</option>
-    <option value="2">Carrots</option>
+    <option value="3">Shrimp</option>
+    <option value="4">Pork</option>
+    <option value="5">Tofu</option>
   </select>
-  <select class="cookingTime">
-    <option value="0">How long do you want this recipe to take:</option>
-    <option value="1">Easy Meals Under 30 minutes</option>
-    <option value="2">No Time Constrant</option>
+  <select class="vegetableSelection">
+    <option value="0">Select a Vegetable:</option>
+    <option value="1">Carrot</option>
+    <option value="2">Spinach</option>
+    <option value="3">Broccoli</option>
+    <option value="4">Squash</option>
+    <option value="5">Onion</option>
+    <option value="6">Tomato</option>
+    <option value="7">Potato</option>
   </select>
   <select class="musicChoice">
     <option value="0">Please Select a Music Genre</option>
     <option value="1">Pop</option>
-    <option value="1">Jazz</option>
-    <option value="2">Country</option>
-    <option value="2">Rock n'Roll</option>
+    <option value="2">Jazz</option>
+    <option value="3">Country</option>
+    <option value="4">Rock n'Roll</option>
   </select>
   <button class="searchBtn w3-xxlarge w3-black">Search!</button>
 </div>
-
- <!-- !PAGE CONTENT! -->
- <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
-
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" id="food" data-style="hide">
-    <div class="w3-quarter"></div>
-      <h3>The Perfect Sandwich, A Real NYC Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>Let Me Tell You About This Steak</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>Cherries, interrupted</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      <p>What else?</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
-  
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center" data-style="hide">
-    <div class="w3-quarter">
-      <h3>All I Need Is a Popsicle</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>Salmon For Your Skin</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>The Perfect Sandwich, A Real Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="w3-quarter">
-      <h3>Le French</h3>
-      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
@@ -115,9 +71,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 </footer>
 
 </body>
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="script.js"></script>
-
 </html>

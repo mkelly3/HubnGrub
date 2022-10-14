@@ -59,29 +59,40 @@ function getMusic(music){
             var link = document.createTextNode("This is link");
             songUrl.append(link);
             songUrl.title = "This is Link";
+
             var artists = [];
             for(var i=0; i<8; i++){
                   artists[i] = response.results[i].artistName;
             }
-            for(var i=0; i<artists.length; i++){
-                  artistTitle.textContent = artists;
+            for(var i=0; i < artists.length; i++) {
+              $("#artistName" + i).text(artists[i])
             }
+
             var songTitle = [];
             for(var i=0; i<8; i++){
-                  songTitle[i] = response.results[i].trackName;
-            }
-            console.log(songTitle);
-            for(var i=0; i<songTitle.length; i++){
-                  song.textContent = songTitle;
-            }
+                   songTitle[i] = response.results[i].trackName;
+             }
+             for(var i=0; i < songTitle.length; i++) {
+                 $("#songTitle" + i).text(songTitle[i])
+               }
+
+             console.log(songTitle);
+           
             console.log(song);
             var songLink = [];
             for(var i=0; i<8; i++){
                   songLink[i] = response.results[i].trackViewUrl;
             }
+            for(var i=0; i < songLink.length; i++) {
+              $("#songLink" + i).attr("href", songLink[i])
+            }
+
             for(var i=0; i<songLink;i++){
                   songUrl.href = songLink
             }
+
+
+
             console.log(songLink);
             musicDiv.appendChild(songUrl);
             musicDiv.appendChild(artistTitle);
@@ -151,7 +162,8 @@ function onSearchButton(){
             var musicChoice = musicEl.options[musicEl.selectedIndex].text;
             console.log(musicChoice);
             getRecipes(protein,veggieChoice);
-            //getMusic(musicChoice);
+            getMusic(musicChoice);
+            $(".recipeResults").removeAttr("data-style","hide");
             })
       }
 onSearchButton();

@@ -20,7 +20,7 @@ function getRecipes(ingrident1, ingrident2) {
   titleRecipe = [];
   console.log(ingrident1, ingrident2);
   fetch(
-    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=929b3b7b8bef46ec82a39bfd9c299472&ingredients=" +
+    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ecbd1e0fc6b43f9a574a3c4efbd2dfa&ingredients=" +
       ingrident1 +
       ",+" +
       ingrident2
@@ -46,8 +46,22 @@ function getRecipes(ingrident1, ingrident2) {
       for (i = 0; i < recipeImg.length; i++) {
         $("#recipeImg" + i).attr({ src: recipeImg[i], alt: "Food Pic" });
       }
+      for (var i=0; i<10; i++) {
+        fetch(
+          "https://api.spoonacular.com/recipes/"+ response[i].id + "/information?apiKey=8ecbd1e0fc6b43f9a574a3c4efbd2dfa"
+        )
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+      }
+      
+      
     });
 }
+
 
 var musicResultEl = document.querySelector(".musicDisplay");
 var songTitleEl = document.querySelector("#artist");

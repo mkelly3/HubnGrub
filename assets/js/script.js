@@ -53,63 +53,48 @@ var musicResultEl = document.querySelector(".musicDisplay");
 var songTitleEl = document.querySelector("#artist");
 
 function getMusic(music) {
-  artists = [];
-  songTitle = [];
   //search for an artist based on genre
   fetch(
     "https://itunes.apple.com/search?entity=song&attribute=genreIndex&term=" +
       music +
-      "&limit=25"
+      "&limit=80"
   )
     .then(function (response) {
       return response.json();
     })
     .then(function (response) {
-      console.log(response);
-      var musicDiv = document.createElement("div");
-      var artistTitle = document.createElement("h3");
-      var song = document.createElement("p");
-      var songUrl = document.createElement("a");
-
-      var link = document.createTextNode("This is link");
-      songUrl.append(link);
-      songUrl.title = "This is Link";
-
+      //console.log(response.results);
+      var random = response.results;
+      var resutlsArry = [];
+      for (var i = 0; i < 80; i++) {
+        var rando = random[Math.floor(Math.random() * 80)];
+        resutlsArry.push(rando);
+      }
+      console.log(resutlsArry);
       for (var i = 0; i < 8; i++) {
-        artists[i] = response.results[i].artistName;
+        artists[i] = resutlsArry[i].artistName;
       }
       for (var i = 0; i < artists.length; i++) {
         $("#artistName" + i).text(artists[i]);
       }
-
       for (var i = 0; i < 8; i++) {
-        songTitle[i] = response.results[i].trackName;
+        songTitle[i] = resutlsArry[i].trackName;
       }
       for (var i = 0; i < songTitle.length; i++) {
         $("#songTitle" + i).text(songTitle[i]);
       }
-
-      console.log(songTitle);
-
-      console.log(song);
+      //console.log(songTitle);
+      //console.log(song);
       var songLink = [];
       for (var i = 0; i < 8; i++) {
-        songLink[i] = response.results[i].trackViewUrl;
+        songLink[i] = resutlsArry[i].trackViewUrl;
       }
       for (var i = 0; i < songLink.length; i++) {
         $("#songLink" + i).attr("href", songLink[i]);
       }
-
       for (var i = 0; i < songLink; i++) {
         songUrl.href = songLink;
       }
-
-      console.log(songLink);
-      // musicDiv.appendChild(songUrl);
-      // musicDiv.appendChild(artistTitle);
-      // musicDiv.appendChild(song);
-      // musicResultEl.appendChild(musicDiv);
-      // musicResultEl.removeAttribute("data-style");
     })
     .catch((err) => console.error(err));
 }
@@ -176,18 +161,10 @@ function onSearchButton() {
     getRecipes(protein, veggieChoice);
     getMusic(musicChoice);
     $(".recipeResults").removeAttr("data-style", "hide");
+    $(".searchBtn").attr("href", "recipe-display");
   });
 }
 onSearchButton();
-
-function saveBtn() {
-  $(".saveBtn").click(function (event) {
-    var savedobj = {};
-    var dayCard = document.querySelectorAll(".daycard");
-    console.log(dayCard);
-    console.log(savedobj);
-  });
-}
 
 var dayCard = document.querySelectorAll(".day-card");
 var savedCardStringify = "";
@@ -199,12 +176,12 @@ saveBtn.addEventListener("click", function (event) {
     artists: artists,
   };
   localStorage.setItem("savedCardStringify", JSON.stringify(savedCard));
+  document.location.replace("recipe.html");
 });
 
-function recentSaved () {
-  $(".recent").on("click",function(){
+function recentSaved() {
+  $(".recent").on("click", function () {
     document.location.replace("recipe.html");
-  })
+  });
 }
-recentSaved()
-
+recentSaved();

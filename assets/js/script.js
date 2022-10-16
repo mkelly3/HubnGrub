@@ -122,49 +122,6 @@ function getMusic(music) {
     .catch((err) => console.error(err));
 }
 
-// function getMusic(music){
-//       //search for an artisit based on genre
-//       fetch("https://itunes.apple.com/search?entity=song&attribute=genreIndex&term="+music+"&limit=25")
-
-//       .then(function (response) {
-//             return response.json();
-//         })
-
-//       .then(function (response) {
-//             console.log(response)
-//             var artisits = []
-
-//             for(var i=0; i<25; i++){
-//                   artisits[i] = response.results[i].artistName;
-//             }
-//             //console.log(artisits);
-
-//             // artisits = artisits.filter(item => item);
-
-//             // for(var i=0; i<artisits.length; i++){
-//             //       $('.name').text(artisits[i])
-//             // }
-
-//             //document.location.href ="recipe.html";
-
-//             var songTitle = [];
-//             for(var i=0; i<25; i++){
-//                   songTitle[i] = response.results[i].trackName;
-//             }
-//             console.log(songTitle);
-
-//             var songLink = [];
-//             for(var i=0; i<25; i++){
-//                   songLink[i] = response.results[i].trackViewUrl;
-//             }
-//             console.log(songLink);
-
-//       })
-
-//       .catch(err => console.error(err));
-
-// }
-
 function onSearchButton() {
   $(".searchBtn").click(function (event) {
     event.preventDefault();

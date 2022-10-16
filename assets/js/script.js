@@ -20,7 +20,7 @@ function getRecipes(ingrident1, ingrident2) {
   titleRecipe = [];
   console.log(ingrident1, ingrident2);
   fetch(
-    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=8ecbd1e0fc6b43f9a574a3c4efbd2dfa&ingredients=" +
+    "https://api.spoonacular.com/recipes/findByIngredients?apiKey=2a523ceabeec4827b36ca8a5ab2e3b45&ingredients=" +
       ingrident1 +
       ",+" +
       ingrident2
@@ -48,18 +48,27 @@ function getRecipes(ingrident1, ingrident2) {
       }
       for (var i=0; i<10; i++) {
         fetch(
-          "https://api.spoonacular.com/recipes/"+ response[i].id + "/information?apiKey=8ecbd1e0fc6b43f9a574a3c4efbd2dfa"
+          "https://api.spoonacular.com/recipes/"+ response[i].id + "/information?apiKey=2a523ceabeec4827b36ca8a5ab2e3b45"
         )
         .then(function(response) {
           return response.json();
         })
         .then(function(response) {
-          console.log(response);
-        })
-      }
-      
-      
-    });
+          console.log(response.sourceUrl);
+
+          var recipeLink = [];
+          for (var i = 0; i < 8; i++) {
+            recipeLink[i] = response.sourceUrl;
+          }
+          for (var i = 0; i < recipeLink.length; i++) {
+            $("#recipeLink" + i).attr("href", recipeLink[i]);
+          }
+          for (var i = 0; i < recipeLink; i++) {
+            sourceUrl.href = recipeLink;
+          }
+          })    
+          }
+      });
 }
 
 
@@ -112,49 +121,6 @@ function getMusic(music) {
     })
     .catch((err) => console.error(err));
 }
-
-// function getMusic(music){
-//       //search for an artisit based on genre
-//       fetch("https://itunes.apple.com/search?entity=song&attribute=genreIndex&term="+music+"&limit=25")
-
-//       .then(function (response) {
-//             return response.json();
-//         })
-
-//       .then(function (response) {
-//             console.log(response)
-//             var artisits = []
-
-//             for(var i=0; i<25; i++){
-//                   artisits[i] = response.results[i].artistName;
-//             }
-//             //console.log(artisits);
-
-//             // artisits = artisits.filter(item => item);
-
-//             // for(var i=0; i<artisits.length; i++){
-//             //       $('.name').text(artisits[i])
-//             // }
-
-//             //document.location.href ="recipe.html";
-
-//             var songTitle = [];
-//             for(var i=0; i<25; i++){
-//                   songTitle[i] = response.results[i].trackName;
-//             }
-//             console.log(songTitle);
-
-//             var songLink = [];
-//             for(var i=0; i<25; i++){
-//                   songLink[i] = response.results[i].trackViewUrl;
-//             }
-//             console.log(songLink);
-
-//       })
-
-//       .catch(err => console.error(err));
-
-// }
 
 function onSearchButton() {
   $(".searchBtn").click(function (event) {

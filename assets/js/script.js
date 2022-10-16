@@ -161,18 +161,10 @@ function onSearchButton() {
     getRecipes(protein, veggieChoice);
     getMusic(musicChoice);
     $(".recipeResults").removeAttr("data-style", "hide");
+    $(".searchBtn").attr("href", "recipe-display");
   });
 }
 onSearchButton();
-
-function saveBtn() {
-  $(".saveBtn").click(function (event) {
-    var savedobj = {};
-    var dayCard = document.querySelectorAll(".daycard");
-    console.log(dayCard);
-    console.log(savedobj);
-  });
-}
 
 var dayCard = document.querySelectorAll(".day-card");
 var savedCardStringify = "";
@@ -184,6 +176,7 @@ saveBtn.addEventListener("click", function (event) {
     artists: artists,
   };
   localStorage.setItem("savedCardStringify", JSON.stringify(savedCard));
+  document.location.replace("recipe.html");
 });
 
 function recentSaved() {
